@@ -30,7 +30,7 @@ If the communication to the sensor is still not possible try the `Basic` example
 
 # Getting the data
 For getting a table displaying the current sensor data open the IP address of the mikrocontroller in a browser
-[!Sensor data in table form](./images/sensor_data_table.png)
+![Sensor data in table form](./images/sensor_data_table.png)
 
 When calling ip/DATA you will get the values from the table as a simple string in the same order separated by collumns. 
-[!Raw sensor data](./images/sensor_data_raw.png)
+![Raw sensor data](./images/sensor_data_raw.png)
