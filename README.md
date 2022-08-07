@@ -15,3 +15,6 @@ A guide for the installation of the board manager can be found [here](https://gi
 - [BSEC Software Library](https://www.bosch-sensortec.com/software-tools/software/bsec/) for getting the sensor data
 
 Both libraries can be found in the library manager of the Arduino IDE.
+
+# Using the code
+For connecting to your network set the credentials in [secrets.h](./source/Arduino/secrets.h)
