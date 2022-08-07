@@ -18,18 +18,18 @@ Both libraries can be found in the library manager of the Arduino IDE.
 
 # Using the code
 For connecting to your network set the credentials in [secrets.h](./src/Arduino/secrets.h). In this version of the code the Arduino Nano RP2040 gets an IP assigned dynamically. If you want to set a static IP you can do that using `WiFi.config()` before connection to the network:
-`
+```
 WiFi.config(ip);
 WiFi.config(ip, dns);
 WiFi.config(ip, dns, gateway);
 WiFi.config(ip, dns, gateway, subnet)
-`
+```
 
 If you have errors with the communication with the BME680 sensor try changing `BME680_I2C_ADDR_SECONDARY` to `BME680_I2C_ADDR_PRIMARY`.
 If the communication to the sensor is still not possible try the `Basic` example in `File>Examples>Bsec software library>Basic` of `File>Examples>INCOMPATIBLE>Bsec software library>Basic` from the BSEC librabry. It has `Serial.println` statements helpfull with figguring out the error.
 
 # Getting the data
-For getting a table displaying the current sensor data open the IP address of the mikrocontroller in a browser
+For getting a table displaying the current sensor data open the IP address of the microcontroller in a browser
 ![Sensor data in table form](./images/sensor_data_table.png)
 
 When calling ip/DATA you will get the values from the table as a simple string in the same order separated by collumns. 
