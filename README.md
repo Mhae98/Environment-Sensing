@@ -4,13 +4,13 @@
 Greate a environment sensing dashboard using an BME 680 sensor for getting the data, an Arduino nano RP2040  connect for transmitting the data  
 
 Table of contents
-- [#Used hardware](#used-hardware)
-- [#Arduino setup](#arduino-setup)
- - [#Boardmanager](#boardmanager)
- - [#Used libraries](#used-libraries)
- - [#Using the code](#using-the-code)
- - [#Getting the data](#getting-the-data)
-- [#Data logger](#data-logger)
+- [Used hardware](#used-hardware)
+- [Arduino setup](#arduino-setup)
+  * [Boardmanager](#boardmanager)
+  * [Used libraries](#used-libraries)
+  * [Using the code](#using-the-code)
+  * [Getting the data](#getting-the-data)
+- [Data logger](#data-logger)
 
 # Used hardware
 - Microcontroller: [Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect)
