@@ -44,6 +44,7 @@ WiFiServer server(80);
 
 // Setting up server for core 0
 void setup() {
+  Serial.begin(115200);
   WiFi.setHostname("Arduino Sensor");
   WiFi.lowPowerMode();
   // check for the WiFi module:
@@ -64,6 +65,7 @@ void checkForClient() {
   check_WIFI_status();
   client = server.available();              // listen for incoming clients
   if (client) {                             // if you get a client,
+    Serial.println("Client connected");
     bool send_data = false;
     String currentLine = "";                // make a String to hold incoming data from the client
     while (client.connected()) {            // loop while the client's connected
@@ -110,7 +112,7 @@ void checkForClient() {
     }
     client.println();
     client.flush();
-    
+    Serial.println("Client disconnected");
   }
   client.stop();
 }
@@ -144,9 +146,9 @@ void connect_wifi() {
 /* =====END===== Code for running server =====END===== */
 
 /* =====START===== Code for reading sensor =====START===== */
-
 // Setup 1 initializing bsec on second core
 void setup1() {
+  Serial.begin(115200);
   EEPROM.begin(BSEC_MAX_STATE_BLOB_SIZE + 1); // 1st address for the length
   Wire.begin();
   iaqSensor.begin(BME680_I2C_ADDR_SECONDARY, Wire);
@@ -270,8 +272,8 @@ void updateState()
     }
     else {
       // reset counter to 0 after overflow of millis()
-      if (stateUpdateCounter > 0 && (stateUpdateCounter - 1) * STATE_SAVE_PERIOD < millis()) {
-        stateUpdateCounter = 1;
+      if (stateUpdateCounter > 1 && (stateUpdateCounter - 1) * STATE_SAVE_PERIOD > millis()) {
+        stateUpdateCounter = 0;
       }
     }
   }
@@ -285,6 +287,7 @@ void updateState()
   
       EEPROM.write(0, BSEC_MAX_STATE_BLOB_SIZE);
       EEPROM.commit();
+      update = false;
   }
 }
 
